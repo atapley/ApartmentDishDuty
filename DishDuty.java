@@ -16,14 +16,16 @@ class SendEmail {
 	  day--;
 	  week--;
 	  
-	  String names[] = {"tapley.a", "hirn.j", "kachmar.m", "vaiarella.t"};
+	   // Names commented out
+	  String names[] = {****, ****, ****, ****};
 	  String duty[] = {names[(week % 4)], 
 			  names[((week + 1) % 4)], names[((week + 1) % 4)],
 			  names[((week + 2) % 4)], names[((week + 2) % 4)], 
 			  names[((week + 3) % 4)], names[((week + 3) % 4)]};
 	  
-      String from = "dishduty320@gmail.com";
-      String to = duty[day] + "@husky.neu.edu";
+	   //Emails commented out
+      String from = ****;
+      String to = duty[day] + ****;
  
       // Get system properties
       Properties properties = System.getProperties();
@@ -37,7 +39,7 @@ class SendEmail {
       Session session = Session.getInstance(properties,
     		  new javax.mail.Authenticator() {
     	  protected PasswordAuthentication getPasswordAuthentication() {
-    		  return new PasswordAuthentication(from, "dishdutydavb");
+    		  return new PasswordAuthentication(from, ****); //Password commented out
     	  }
       });
 
