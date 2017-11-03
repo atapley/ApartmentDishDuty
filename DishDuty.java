@@ -12,9 +12,17 @@ class SendEmail {
 	  if (week == 5) {
 		  week = 1;
 	  }
-	  
+	  if (day == 0) {
+			week--;
+		}
 	  day--;
+	   if (day == -1) {
+			day = 6;
+		}
 	  week--;
+	   if (week == -1) {
+			week = 3;
+		}
 	  
 	   // Names commented out
 	  String names[] = {****, ****, ****, ****};
@@ -59,5 +67,32 @@ class SendEmail {
       catch (MessagingException mex) {
          mex.printStackTrace();
       }
+	   		//Weekly schedule sent on Mondays
+		if (day == 1) {
+			to = ****;
+
+			try {
+				// Create a default MimeMessage object.
+				MimeMessage message = new MimeMessage(session);
+
+				message.setFrom(new InternetAddress(from));
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+				message.setSubject("Weekly Dish Duty Schedule");
+				message.setText("Monday: " + duty[1] + "\r" +
+						"Tuesday: " + duty[2] + "\r" +
+						"Wednesday: " + duty[3] + "\r" +
+						"Thursday: " + duty[4] + "\r" +
+						"Friday: " + duty[5] + "\r" +
+						"Saturday: " + duty[6] + "\r" +
+						"Sunday: " + duty[0] + "\r");
+
+				Transport.send(message);
+				System.out.print("Done!");
+			} 
+
+			catch (MessagingException mex) {
+				mex.printStackTrace();
+			}
+		}
    }
 }
