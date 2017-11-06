@@ -9,17 +9,17 @@ class SendEmail {
 	   
 	  int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 	  int week = Calendar.getInstance().get(Calendar.WEEK_OF_MONTH);
+	  week--;
+	  day--;
 	  if (week == 5) {
 		  week = 1;
 	  }
 	  if (day == 0) {
 			week--;
 		}
-	  day--;
 	   if (day == -1) {
 			day = 6;
 		}
-	  week--;
 	   if (week == -1) {
 			week = 3;
 		}
